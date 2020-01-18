@@ -18,16 +18,37 @@ exports.createUsers = function(req, res) {
     var phone_number = req.body.phone_number;
     var first_name = req.body.first_name;
     var last_name = req.body.last_name;
+    var birth_date = new Date(req.body.birth_date);
     var gender = req.body.gender;
     var email = req.body.email;
 
-    connection.query('INSERT INTO mitrais.registration (phone_number, first_name, last_name, birth_date, gender, email) VALUES (?, ?, ?, NOW(), ?, ?)',
-    [ phone_number ,first_name, last_name, gender, email ], 
+    connection.query('INSERT INTO mitrais.registration (phone_number, first_name, last_name, birth_date, gender, email) VALUES (?, ?, ?, ?, ?, ?)',
+    [ phone_number ,first_name, last_name, birth_date, gender, email ], 
     function (error, rows, fields){
         if(error){
             console.log(error)
         } else{
             response.ok("Berhasil menambahkan user!", res)
+        }
+    });
+};
+
+exports.emails = function(req, res) {
+    connection.query('SELECT email FROM mitrais.registration', function (error, rows, fields){
+        if(error){
+            console.log(error)
+        } else{
+            response.ok(rows, res)
+        }
+    });
+};
+
+exports.mobiles = function(req, res) {
+    connection.query('SELECT phone_number FROM mitrais.registration', function (error, rows, fields){
+        if(error){
+            console.log(error)
+        } else{
+            response.ok(rows, res)
         }
     });
 };

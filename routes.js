@@ -8,4 +8,8 @@ module.exports = function(app) {
   app.route("/users").get(todoList.users);
 
   app.route("/users").post(todoList.createUsers);
+
+  app.route("/emails").get(todoList.emails);
+
+  app.route("/mobiles").get(todoList.mobiles);
 };
