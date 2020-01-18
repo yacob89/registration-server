@@ -28,7 +28,7 @@ exports.createUsers = function(req, res) {
         if(error){
             console.log(error)
         } else{
-            response.ok("Berhasil menambahkan user!", res)
+            response.ok("success", res)
         }
     });
 };
@@ -54,5 +54,5 @@ exports.mobiles = function(req, res) {
 };
 
 exports.index = function(req, res) {
-    response.ok("Hello from the Node JS RESTful side!", res)
+    response.ok("Node JS RESTful mitrais test", res)
 };
