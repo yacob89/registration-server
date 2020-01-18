@@ -4,6 +4,10 @@ This project is deployed to: [http://mitraisserver-env.tecyp2skhk.us-east-2.elas
 
 In the project directory, you can run:
 
+### `yarn install`
+
+Install dependencies used in this project.
+
 ### `node index.js`
 
 Runs the app in the development mode.<br />
